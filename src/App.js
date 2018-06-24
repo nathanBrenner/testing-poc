@@ -7,6 +7,7 @@ import {
   withRouter,
 } from 'react-router-dom'
 import Form from './Form';
+import MyFormikForm from './MyFormikForm';
 class Home extends Component {
   handleSubmit = (payload) => {
     this.props.history.push('/about');
@@ -15,7 +16,8 @@ class Home extends Component {
       return (
       <div>
         <h2>Home</h2>
-        <Form submit={this.handleSubmit}/>
+        {/* <Form submit={this.handleSubmit}/> */}
+        <MyFormikForm submit={this.handleSubmit} />
       </div>
     )
   }
