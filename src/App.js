@@ -9,6 +9,7 @@ import {
 import Form from './Form';
 import MyFormikForm from './MyFormikForm';
 import FormikRenderProp from './FormikRenderProp';
+import SignUpForm from './sign-up-form';
 
 class Home extends Component {
   handleSubmit = (payload) => {
@@ -22,12 +23,12 @@ class Home extends Component {
 
   }
   render() {
-    const Form = this.renderRandomFormType();
+    // const Form = this.renderRandomFormType();
 
-      return (
+    return (
       <div>
         <h2>Home</h2>
-        <Form submit={this.handleSubmit} />
+        <SignUpForm invite={this.handleSubmit} />
       </div>
     )
   }
@@ -46,19 +47,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Router>
-        <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
-          </ul>
+        <Router>
+          <div>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About</Link></li>
+            </ul>
 
-          <hr/>
+            <hr/>
 
-          <Route exact path="/" component={Home}/>
-          <Route path="/about" component={About}/>
-        </div>
-      </Router>
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+          </div>
+        </Router>
       </div>
     );
   }

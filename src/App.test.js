@@ -24,7 +24,7 @@ it('routes', async () => {
   expect(window.location.href).not.toContain('about');
 });
 
-it('sumits a form', () => {
+xit('sumits a form', () => {
   const { getByText, getByLabelText } = render(<App />);
 
   expect(window.location.href).not.toContain('about');
