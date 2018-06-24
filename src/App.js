@@ -8,16 +8,26 @@ import {
 } from 'react-router-dom'
 import Form from './Form';
 import MyFormikForm from './MyFormikForm';
+import FormikRenderProp from './FormikRenderProp';
+
 class Home extends Component {
   handleSubmit = (payload) => {
     this.props.history.push('/about');
   }
+
+  renderRandomFormType() {
+    const forms = [Form, MyFormikForm, FormikRenderProp];
+    const val = Math.floor(Math.random() * 3);
+    return forms[val];
+
+  }
   render() {
+    const Form = this.renderRandomFormType();
+
       return (
       <div>
         <h2>Home</h2>
-        {/* <Form submit={this.handleSubmit}/> */}
-        <MyFormikForm submit={this.handleSubmit} />
+        <Form submit={this.handleSubmit} />
       </div>
     )
   }

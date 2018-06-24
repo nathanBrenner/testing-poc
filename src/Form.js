@@ -15,7 +15,7 @@ export class Form extends Component {
 	}
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} data-testid="vanilla-form">
 				<label>
 					todo:
 					<input type="text" value={this.state.value} onChange={this.handleChange} />

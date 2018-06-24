@@ -1,6 +1,5 @@
-// Higher Order Component
 import React from 'react';
-import { withFormik } from 'formik';
+import { Formik } from 'formik';
 
 const InnerForm = ({
   values,
@@ -9,7 +8,7 @@ const InnerForm = ({
   handleSubmit,
   isSubmitting,
 }) => (
-  <form onSubmit={handleSubmit} data-testid="formik-hoc-form">
+  <form onSubmit={handleSubmit} data-testid="formik-render-prop-form">
 		<label>
 			todo:
 			<input
@@ -26,10 +25,14 @@ const InnerForm = ({
   </form>
 );
 
-export default withFormik({
-	mapPropsToValues: props => ({ todo: '' }),
-  handleSubmit: (
-    values,
-    { props }
-  ) => props.submit(values),
-})(InnerForm);
+const FormikRenderForm = ({ submit }) => (
+	<Formik
+		initialValues={{
+      todo: '',
+    }}
+		component={InnerForm}
+		onSubmit={(values) => submit(values)}
+	/>
+)
+
+export default FormikRenderForm;
