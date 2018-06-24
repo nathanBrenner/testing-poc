@@ -22,4 +22,18 @@ it('routes', async () => {
   fireEventUtil(getByText('Home'));
 
   expect(window.location.href).not.toContain('about');
+});
+
+it('sumits a form', () => {
+  const { getByText, getByLabelText } = render(<App />);
+
+  expect(window.location.href).not.toContain('about');
+
+  const inputNode = getByLabelText('todo:');
+
+  inputNode.value = 'foo';
+
+  fireEventUtil(getByText('Submit'));
+
+  expect(window.location.href).toContain('about');
 })

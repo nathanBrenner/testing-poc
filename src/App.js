@@ -3,14 +3,25 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Route,
-  Link
+  Link,
+  withRouter,
 } from 'react-router-dom'
+import Form from './Form';
+class Home extends Component {
+  handleSubmit = (payload) => {
+    this.props.history.push('/about');
+  }
+  render() {
+      return (
+      <div>
+        <h2>Home</h2>
+        <Form submit={this.handleSubmit}/>
+      </div>
+    )
+  }
+}
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+Home = withRouter(Home);
 
 const About = () => (
   <div>
@@ -19,6 +30,7 @@ const About = () => (
 )
 
 class App extends Component {
+  
   render() {
     return (
       <div className="App">

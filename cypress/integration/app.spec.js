@@ -8,5 +8,15 @@ describe('App', () => {
 			.getByText('Home')
 			.click()
 			.assertRoute('/')
+	});
+
+	it('submits a form', () => {
+		cy.visit('/')
+			.assertRoute('/')
+			.getByLabelText('todo:')
+			.type('do something today')
+			.getByText('Submit')
+			.click()
+			.assertRoute('/about')
 	})
 })
